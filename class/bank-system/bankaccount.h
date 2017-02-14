@@ -25,4 +25,16 @@ public:
   std::string getName() {
     return name;
   }
+  void setBalance(double amount) {
+    accountBalance = amount;
+  }
+  void transfer(BankAccount& bk, double amount) {
+    if(bk.getBalance() - amount >= 0) {
+      accountBalance += amount;
+      bk.makeTransaction(-amount);
+      
+    } else {
+      std::cout << "Balance is too low" << std::endl;
+    }
+  }
 };

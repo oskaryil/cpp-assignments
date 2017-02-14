@@ -23,30 +23,34 @@ void menu() {
 
 int main() {
 
-  bool run = true;
+  // bool run = true;
 
-  do {
-    menu();
-    int choice;
-    cout << "Choice: ";
-    cin >> choice;
-    switch(choice) {
-      case 1:
-        string name;
-        long long personNr;
-        cout << "---- Open an account ----" << endl;
-        cout << "Last name: ";
-        cin.ignore();
-        getline(cin, name);
-        cout << "Social security number: ";
-        cin >> personNr;
-        cout << "personnr: " << personNr << endl;
-        BankAccount personOne(personNr, 0, name);
-        cout << personOne.getName() << " " << "AccNumber " << personOne.accNumber() << endl;
-        run = false;
-        break;
-    }
-  } while(run);
+  // do {
+  //   menu();
+  //   int choice;
+  //   cout << "Choice: ";
+  //   cin >> choice;
+  //   switch(choice) {
+  //     case 1:
+  //       string name;
+  //       long long personNr;
+  //       cout << "---- Open an account ----" << endl;
+  //       cout << "Last name: ";
+  //       cin.ignore();
+  //       getline(cin, name);
+  //       cout << "Social security number: ";
+  //       cin >> personNr;
+  //       cout << "personnr: " << personNr << endl;
+  //       BankAccount personOne(personNr, 0, name);
+  //       cout << personOne.getName() << " " << "AccNumber " << personOne.accNumber() << endl;
+  //       run = false;
+  //       break;
+  //     case 5:
+  //       BankAccount personTwo(12345, 5000, "Oskar");
+  //       personOne.transfer(&personTwo);
+  //       cout << personOne.getBalance();
+  //   }
+  // } while(run);
 
   // First parameter is accountnumber, second parameter is initial account balance.
   // BankAccount Oskar(123456, 100); 
@@ -55,5 +59,13 @@ int main() {
   // cout << "Adding 500" << endl;
   // Oskar.makeTransaction(500);
   // cout << "New Balance: " << Oskar.getBalance() << endl;
+
+  BankAccount oskar(1234, 1000, "Oskar");
+  BankAccount elise(123, 1000, "Elise");
+
+  oskar.transfer(elise, 1000);
+
+  cout << "oskar balance: " << oskar.getBalance() << endl;
+  cout << "elise balance: " << elise.getBalance() << endl;
   return 0;
 }
